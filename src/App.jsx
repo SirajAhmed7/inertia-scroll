@@ -89,9 +89,8 @@ function App() {
 
       const itemsQuickToArr = gridItems.map((item, i) => {
         return gsap.quickTo(item, "y", {
-          duration: 0.15,
-          delay: (i % 4) * 0.15,
-          // ease: "power1.out",
+          duration: 0.4,
+          ease: "power3.out",
         });
       });
 
@@ -101,24 +100,17 @@ function App() {
         onChange: (self) => {
           if (
             (window.scrollY === 0 && self.velocityY < 0) ||
-            (window.scrollY ===
-              document.body.scrollHeight - window.innerHeight &&
+            (window.scrollY >
+              document.body.scrollHeight - window.innerHeight * 1.1 &&
               self.velocityY > 0)
-          )
+          ) {
+            itemsQuickToArr.forEach((item) => item(0));
             return;
+          }
 
           itemsQuickToArr.forEach((item, i) =>
-            item((i % 4) * (self.velocityY / 85))
+            item((i % 4) * (self.velocityY / 60))
           );
-
-          // gridItems.forEach((item, i) => {
-          //   gsap.to(item, {
-          //     y: (i % 4) * (self.velocityY / 50),
-          //     duration: 1.5,
-          //     ease: "power1.out",
-          //     overwrite: "auto",
-          //   });
-          // });
         },
       });
     },
