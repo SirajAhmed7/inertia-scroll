@@ -1,0 +1,6 @@
+@import "./fonts.css";
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Cabinet Grotesk", sans-serif;
+}
