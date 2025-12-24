@@ -114,7 +114,11 @@ function Header() {
           Inertia Scroll <span className="font-normal">Demo</span>
         </h1>
 
-        <a href="#" target="_blank" className="size-5 block">
+        <a
+          href="https://github.com/SirajAhmed7/inertia-scroll"
+          target="_blank"
+          className="size-5 block"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
