@@ -30,9 +30,11 @@ function App() {
             scale: 1.1,
           });
 
-          const gridImgs = gsap.utils.toArray(".grit-item-img");
+          const gridItems = gsap.utils.toArray(".grid-item");
+          // const gridImgs = gsap.utils.toArray(".grit-item-img");
 
-          gridImgs.forEach((gridImg) => {
+          gridItems.forEach((item) => {
+            const gridImg = item.querySelector(".grit-item-img");
             gsap.fromTo(
               gridImg,
               {
@@ -40,7 +42,7 @@ function App() {
               },
               {
                 scrollTrigger: {
-                  trigger: gridImg,
+                  trigger: item,
                   start: "top bottom",
                   end: "bottom top",
                   scrub: true,
@@ -51,8 +53,6 @@ function App() {
           });
 
           if (isSm) return;
-
-          const gridItems = gsap.utils.toArray(".grid-item");
 
           const itemsQuickToArr = gridItems.map((item) => {
             return gsap.quickTo(item, "y", {
